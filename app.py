@@ -25,7 +25,7 @@ def callback():
 def handle_message(event):
     message = event.message.text
     if message == "晚餐吃什麼":
-        line_bot_api.reply_message(event.reply_token, "去吃屎啦")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage("去吃屎啦"))
 
 import os
 if __name__ == "__main__":
