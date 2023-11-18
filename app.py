@@ -29,9 +29,7 @@ def handle_message(event):
     if message == "晚餐吃什麼":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="不如我們去吃"+dinner+"吧！"))
     elif message == "現在餐廳":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:"))
-        for i in all_restaurant:
-            line_bot_api.push_message(event.source.user_id, TextSendMessage(text=i))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:"+",".join(all_restaurant)))   
     elif message.startswith("新增餐廳:"):
         with open('restaurants.json', 'r', encoding='utf8') as f:
             restaurant = json.load(f)
@@ -46,6 +44,17 @@ def handle_message(event):
         with open('restaurants.json', 'w', encoding='utf8') as f:
             json.dump(restaurant, f, ensure_ascii=False)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增餐廳"+message[5:]))
+    elif message.startswith("刪除餐廳:"):
+        with open('restaurants.json', 'r', encoding='utf8') as f:
+            restaurant = json.load(f)
+        try:
+            restaurant.remove(message[5:])
+        except:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="餐廳不存在"))
+            return
+        with open('restaurants.json', 'w', encoding='utf8') as f:
+            json.dump(restaurant, f, ensure_ascii=False)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已刪除餐廳"+message[5:]))
 
 import os
 if __name__ == "__main__":
