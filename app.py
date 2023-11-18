@@ -25,8 +25,13 @@ def callback():
 def handle_message(event):
     message = event.message.text
     dinner = get_one_restaurant()
+    all_restaurant, quantity = get_all_restaurant()
     if message == "晚餐吃什麼":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=dinner))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="不如我們去吃"+dinner+"吧！"))
+    elif message == "現在餐廳":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:"))
+        for i in all_restaurant:
+            line_bot_api.push_message(event.source.user_id, TextSendMessage(text=i))
 
 import os
 if __name__ == "__main__":
