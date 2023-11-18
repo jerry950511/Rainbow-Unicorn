@@ -41,7 +41,7 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在沒有餐廳"))
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="嘎睿用這個指令備份現在的所存的餐廳"))
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=all_restaurant))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=str(all_restaurant)))
     elif message.startswith("新增餐廳:") or message.startswith("新增餐廳："):
         with open('restaurants.json', 'r', encoding='utf8') as f:
             restaurant = json.load(f)
