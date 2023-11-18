@@ -27,7 +27,10 @@ def handle_message(event):
     dinner = get_one_restaurant()
     all_restaurant, quantity = get_all_restaurant()
     if message == "晚餐吃什麼":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="不如我們去吃 - "+dinner+"吧！"))
+        if dinner == None:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在沒有餐廳"))
+        else:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="不如我們去吃 - "+dinner+"吧！"))
     elif message == "現在餐廳":
         if quantity == 0:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在沒有餐廳"))
