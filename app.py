@@ -52,7 +52,7 @@ def handle_message(event):
                 return
             else:
                 restaurant.remove(message[5:])
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已將"+message[5:])+"從餐廳選擇器中刪除")
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已將"+message[5:]+"從餐廳選擇器中刪除")
                 with open('restaurants.json', 'w', encoding='utf8') as f:
                     json.dump(restaurant, f, ensure_ascii=False)
         else:
