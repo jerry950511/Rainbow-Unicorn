@@ -62,14 +62,7 @@ def handle_message(event):
                 json.dump(restaurant, f, ensure_ascii=False)
 
     elif message == "指令" or message == "提示":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="""
-                                                                      指令列表:\n
-                                                                      指令名稱: 晚餐吃什麼\n指令說明:從晚餐選擇器中隨機抽出一間來吃\n\n
-                                                                      指令名稱: 現在餐廳\n指令說明:顯示在晚餐選擇器中的餐廳\n\n
-                                                                      指令名稱: 備份現在餐廳\n指令說明:輸出現在所有餐廳並用逗號分隔(嘎睿備份用)\n\n
-                                                                      指令名稱: 新增餐廳:<請填入餐廳名>\n指令名稱:新增餐廳至餐廳選擇器中\n\n
-                                                                      指令名稱: 刪除餐廳:<請填入餐廳名>\n指令名稱:從餐廳選擇器中刪除餐廳\n\n
-                                                                      """))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="指令列表:\n指令名稱: 晚餐吃什麼\n指令說明:從晚餐選擇器中隨機抽出一間來吃\n\n指令名稱: 現在餐廳\n指令說明:顯示在晚餐選擇器中的餐廳\n\n指令名稱: 備份現在餐廳\n指令說明:輸出現在所有餐廳並用逗號分隔(嘎睿備份用)\n\n指令名稱: 新增餐廳:<請填入餐廳名>\n指令名稱:新增餐廳至餐廳選擇器中\n\n指令名稱: 刪除餐廳:<請填入餐廳名>\n指令名稱:從餐廳選擇器中刪除餐廳"))
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
