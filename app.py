@@ -29,34 +29,32 @@ def handle_message(event):
     if message == "晚餐吃什麼":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="不如我們去吃 - "+dinner+"吧！"))
     elif message == "現在餐廳":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:\n"+"\n".join(all_restaurant)))   
-    elif message.startswith("新增餐廳:"):
+        if quantity == 0:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在沒有餐廳"))
+        else:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:\n"+"\n".join(all_restaurant)))
+    elif message == "備份現在餐廳":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="嘎睿用這個指令備份現在的所存的餐廳"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=",".join(all_restaurant)))      
+    elif message.startswith("新增餐廳:") or message.startswith("新增餐廳："):
         with open('restaurants.json', 'r', encoding='utf8') as f:
             restaurant = json.load(f)
         restaurant.append(message[5:])
         with open('restaurants.json', 'w', encoding='utf8') as f:
             json.dump(restaurant, f, ensure_ascii=False)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增 - "+message[5:]+"到餐廳選擇器中"))
-    elif message.startswith("新增餐廳："):
-        with open('restaurants.json', 'r', encoding='utf8') as f:
-            restaurant = json.load(f)
-        restaurant.append(message[5:])
-        with open('restaurants.json', 'w', encoding='utf8') as f:
-            json.dump(restaurant, f, ensure_ascii=False)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增 - "+message[5:]+"到餐廳選擇器中"))
-    elif message.startswith("刪除餐廳:"):
+    elif message.startswith("刪除餐廳:") or message.startswith("刪除餐廳："):
         if line_bot_api.get_profile(event.source.user_id).user_id == "U65ee7f85e168b0368b448754cc5102c0":
             with open('restaurants.json', 'r', encoding='utf8') as f:
                 restaurant = json.load(f)
-            try:
-                restaurant.remove(message[5:])
-                with open('restaurants.json', 'w', encoding='utf8') as f:
-                    json.dump(restaurant, f, ensure_ascii=False)
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已將"+message[5:])+"從餐廳選擇器中刪除")
-            except:
+            if message[5:] not in restaurant:
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text="餐廳不存在"))
                 return
-            
+            else:
+                restaurant.remove(message[5:])
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已將"+message[5:])+"從餐廳選擇器中刪除")
+                with open('restaurants.json', 'w', encoding='utf8') as f:
+                    json.dump(restaurant, f, ensure_ascii=False)
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="權限不足 請找嘎睿"))
 
