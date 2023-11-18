@@ -57,8 +57,6 @@ def handle_message(event):
                     json.dump(restaurant, f, ensure_ascii=False)
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="權限不足 請找嘎睿"))
-    elif message == "ID":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=line_bot_api.get_profile(event.source.user_id).user_id))
 
 import os
 if __name__ == "__main__":
