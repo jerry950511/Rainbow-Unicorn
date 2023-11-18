@@ -3,12 +3,12 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
 import os
+from func import *
 
 app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
 handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
-
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -24,8 +24,9 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
+    dinner = get_one_restaurant()
     if message == "晚餐吃什麼":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage("去吃屎啦"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=dinner))
 
 import os
 if __name__ == "__main__":
