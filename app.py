@@ -32,6 +32,20 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:"))
         for i in all_restaurant:
             line_bot_api.push_message(event.source.user_id, TextSendMessage(text=i))
+    elif message.startswith("新增餐廳:"):
+        with open('restaurants.json', 'r', encoding='utf8') as f:
+            restaurant = json.load(f)
+        restaurant.append(message[5:])
+        with open('restaurants.json', 'w', encoding='utf8') as f:
+            json.dump(restaurant, f, ensure_ascii=False)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增餐廳"+message[5:]))
+    elif message.startswith("新增餐廳："):
+        with open('restaurants.json', 'r', encoding='utf8') as f:
+            restaurant = json.load(f)
+        restaurant.append(message[5:])
+        with open('restaurants.json', 'w', encoding='utf8') as f:
+            json.dump(restaurant, f, ensure_ascii=False)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增餐廳"+message[5:]))
 
 import os
 if __name__ == "__main__":
