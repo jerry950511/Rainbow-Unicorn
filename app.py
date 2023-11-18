@@ -37,8 +37,11 @@ def handle_message(event):
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在有"+str(quantity)+"間餐廳 分別為:\n"+"\n".join(all_restaurant)))
     elif message == "備份現在餐廳":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="嘎睿用這個指令備份現在的所存的餐廳"))
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=",".join(all_restaurant)))      
+        if quantity == 0:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="現在沒有餐廳"))
+        else:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="嘎睿用這個指令備份現在的所存的餐廳"))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=",".join(all_restaurant)))      
     elif message.startswith("新增餐廳:") or message.startswith("新增餐廳："):
         with open('restaurants.json', 'r', encoding='utf8') as f:
             restaurant = json.load(f)
