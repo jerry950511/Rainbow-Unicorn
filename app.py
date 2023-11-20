@@ -44,10 +44,14 @@ def handle_message(event):
     elif message.startswith("新增餐廳:") or message.startswith("新增餐廳："):
         with open('restaurants.json', 'r', encoding='utf8') as f:
             restaurant = json.load(f)
-        restaurant.append(message[5:])
-        with open('restaurants.json', 'w', encoding='utf8') as f:
-            json.dump(restaurant, f, ensure_ascii=False)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增 - "+message[5:]+"到餐廳選擇器中"))
+        if message[5:] in restaurant:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="餐廳已存在"))
+            return
+        else:
+            restaurant.append(message[5:])
+            with open('restaurants.json', 'w', encoding='utf8') as f:
+                json.dump(restaurant, f, ensure_ascii=False)
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="已新增 - "+message[5:]+"到餐廳選擇器中"))
     elif message.startswith("刪除餐廳:") or message.startswith("刪除餐廳："):
         with open('restaurants.json', 'r', encoding='utf8') as f:
             restaurant = json.load(f)
