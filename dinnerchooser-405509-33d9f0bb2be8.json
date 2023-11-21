@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dinnerchooser-405509",
+  "private_key_id": "33d9f0bb2be8d7c8be7b642b47bcea2e9268991e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCx3VMunTs0/G9V\n4Zv2oIjVyDLOVcwWuzvcsyFWEy47LaE7XKOZ9w5l2p/xQ1H152a/8w10CYzRtWuL\nXzU4U7zjKPFEJop3CA3366BbUkdPjev0bUxzRmNamE1M+CfnpiMCQgA+w7B6Q+9M\n/r0OKV4DYPymUwZlUTp1AAJoXqqB3MpBMFTBY6/yU4zM+cxf0Lv0yBs2r0Osj3Xd\ncq7WRiwgMJ8h4vAH5Nhdfu0NzW8SHtWQ08UH0KAnL8kFXd3DGpCv0FDo7x9DwTAo\nks/Nf+LFtijArIK9Rf4PAyelvbhGthAzwcHa4lEzqPqY0lOzbUMQSEjlfL/mKzlf\nFwAwdE+7AgMBAAECggEAC6PzNAHiffyNYf7MOo8ie9dIpLwoIxuC3SLnqh7CoxxA\nr1/IBz7ZG62Vhr0qQ1OVimqjDtz3JELHmvOSsJdUxwsgnlF/Acl7QvMrtGS4oD2N\nQgE+aroiRqutpD1tCY1g2it51G6LNLbdSPOdA0aOAN7Ok8Leqfyi1kU3Yx90ikYa\n3lg+3cZWZ9o44tA8H8C/E1WuBui9d4OUZ7nDu9EZxkh1zCXnwWEAys6nzYho8KOg\naIi0xnvxe8zmdldEFCCBGOh/O2Q4yNDnjgT+jvic6OtFDaXCYkyg81AVySuCBrno\nq+zjhj+FCxxwdlCdxHGmTowC1b5+BEMm6F9/UiZvXQKBgQDa6kwP2H80B4dnR4HN\n/bHzUBnr2MQhNMdQtwgz+JADS2uwyZv2mTix2FyrjV19u1b2Cf4/2CApv+jKoiIN\nWxSpGwMmwAfFEwbymFP6Od/fHcKaucmuB2GyWLEwDKqZME0mhwJTe56DJ2SqJtk6\n4Rq49sxyTeYb56bImUYer6+yjQKBgQDP/sg3TNGi5hk2CM6SfULl7rMtVQ0UYPR9\npX1X3HlYg/CuoqPdHj3pbLaeAQlO2K2DTU07dmX+diDSFgoyH/6rULxTJybWAc8R\nFXlYkOYrqWu/GxbNwnFqL3sjh5fN1a8cHph3DF01M6MLNLx+H5K/L0SkPNJxSZxD\nWBUk8g+dZwKBgQCn+MrwBaBk3boJhxaUZiralQWur56eFA8zYZ2LsxddT8uL1MY1\nCxAzdd51S30G8m4hTz2k40KahkQq5wjV0qMhtjZOz12m25ijIDqfbzTVz9H4QsH7\nJHLUE7WxNqbX7/XisAka4WmZHOrim/hmcz672bK5qgf8NV0F4oWpGgjoKQKBgCLe\nmNxEgaSopLNdWJxQaaW4lctUxeOTuYlS9CeFq8Y+IFx2obgRONnoQtlMXS4dv0ES\n9Y6xc7nsPeZakY0DtiMsXtYl6ynXlcpMalKBwESzm3+nX/RQ08i0exVixv1YBIpX\nSsIyjXG83WmkhrEyQ9zPZNeP5svdRlg37RuLhTijAoGBAIiPlgkASMZvxzoWs7BV\nx9bXyAiRHfVAE7j0qOipKetvZxCtI3JKrdOnO3AoL2pP0frTJqcxjxG9hAECFdv7\nvrBc08oP4QRCpB3/rHRo5CTcAoRX1a1uBhK0rOoRMU8Vbmoh2LLangxLjsTMLwDH\ndlRNdPeVGXOmKE9JiQ5XZcNi\n-----END PRIVATE KEY-----\n",
+  "client_email": "dinnerchooser@dinnerchooser-405509.iam.gserviceaccount.com",
+  "client_id": "112883398949292500313",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dinnerchooser%40dinnerchooser-405509.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
