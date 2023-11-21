@@ -24,7 +24,7 @@ def add_restaurant(restaurant):
     if restaurant in val:
         return False
     else:
-        wks.insert_rows(1, values=restaurant)
+        wks.insert_rows(1, values=[restaurant])
         return True
     
 def delete_restaurant(restaurant):
@@ -35,3 +35,4 @@ def delete_restaurant(restaurant):
         return True
     else:
         return False
+    
